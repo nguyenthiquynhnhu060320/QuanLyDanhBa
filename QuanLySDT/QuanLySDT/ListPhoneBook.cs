@@ -26,10 +26,13 @@ namespace QuanLySDT
         private ListPhoneBook()
         {
             listNbphone = new List<PhoneBook>();
-            listNbphone.Add(new PhoneBook("0375204538", "Cty ABC", "Quỳnh Như", "Giám đốc"));
-            listNbphone.Add(new PhoneBook("0375204111", "Cty Z", "Quỳnh ", "Giám đốc"));
-            listNbphone.Add(new PhoneBook("0375204222", "Cty 7", "Như", "Giám đốc"));
-            listNbphone.Add(new PhoneBook("0375204333", "Cty 9", "Khang", "Giám đốc"));
+            //listNbphone.Add(new PhoneBook("0375204538", "Cty ABC", "Quỳnh Như", "Giám đốc"));
+            //listNbphone.Add(new PhoneBook("0375204111", "Cty Z", "Quỳnh ", "Giám đốc"));
+            //listNbphone.Add(new PhoneBook("0375204222", "Cty 7", "Như", "Giám đốc"));
+            //listNbphone.Add(new PhoneBook("0371.04333", "ubnd 8", "Khang 1", "Giám đốc"));
+            //listNbphone.Add(new PhoneBook("0375204111", "cttnhh 9", "Quỳnh 1", "Giám đốc"));
+            //listNbphone.Add(new PhoneBook("05685204222", "Cong ty 10", "Như 1", "Giám đốc"));
+            //listNbphone.Add(new PhoneBook("03752545333", "Cty 11", "Khang 3", "Giám đốc"));
         }
     }
 }

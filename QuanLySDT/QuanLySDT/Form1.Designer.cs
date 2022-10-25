@@ -31,6 +31,8 @@ namespace QuanLySDT
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.heToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinNgườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinPhầnMềmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -50,8 +52,6 @@ namespace QuanLySDT
             this.btluu = new System.Windows.Forms.Button();
             this.bthuy = new System.Windows.Forms.Button();
             this.bttimkiem = new System.Windows.Forms.Button();
-            this.thôngTinNgườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGList)).BeginInit();
@@ -80,6 +80,21 @@ namespace QuanLySDT
             this.heToolStripMenuItem.Name = "heToolStripMenuItem";
             this.heToolStripMenuItem.Size = new System.Drawing.Size(99, 25);
             this.heToolStripMenuItem.Text = "Hệ Thống";
+            // 
+            // thôngTinNgườiDùngToolStripMenuItem
+            // 
+            this.thôngTinNgườiDùngToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thôngTinNgườiDùngToolStripMenuItem.Name = "thôngTinNgườiDùngToolStripMenuItem";
+            this.thôngTinNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
+            this.thôngTinNgườiDùngToolStripMenuItem.Text = "Thông tin người dùng";
+            // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
             // trợGiúpToolStripMenuItem
             // 
@@ -173,6 +188,7 @@ namespace QuanLySDT
             this.txttencoquan.Name = "txttencoquan";
             this.txttencoquan.Size = new System.Drawing.Size(203, 30);
             this.txttencoquan.TabIndex = 4;
+            this.txttencoquan.TextChanged += new System.EventHandler(this.txttencoquan_TextChanged);
             // 
             // txtnguoidaidien
             // 
@@ -212,6 +228,7 @@ namespace QuanLySDT
             this.dataGList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGList.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGList.Location = new System.Drawing.Point(26, 134);
@@ -220,6 +237,7 @@ namespace QuanLySDT
             this.dataGList.RowTemplate.Height = 24;
             this.dataGList.Size = new System.Drawing.Size(808, 297);
             this.dataGList.TabIndex = 2;
+            this.dataGList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGList_CellClick);
             // 
             // tableLayoutPanel2
             // 
@@ -254,6 +272,7 @@ namespace QuanLySDT
             this.btthem.TabIndex = 0;
             this.btthem.Text = "Thêm";
             this.btthem.UseVisualStyleBackColor = true;
+            this.btthem.Click += new System.EventHandler(this.btthem_Click);
             // 
             // btSua
             // 
@@ -265,6 +284,7 @@ namespace QuanLySDT
             this.btSua.TabIndex = 1;
             this.btSua.Text = "Sửa";
             this.btSua.UseVisualStyleBackColor = true;
+            this.btSua.Click += new System.EventHandler(this.btSua_Click);
             // 
             // btXoa
             // 
@@ -276,6 +296,7 @@ namespace QuanLySDT
             this.btXoa.TabIndex = 2;
             this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
             // btluu
             // 
@@ -287,6 +308,7 @@ namespace QuanLySDT
             this.btluu.TabIndex = 3;
             this.btluu.Text = "Lưu";
             this.btluu.UseVisualStyleBackColor = true;
+            this.btluu.Click += new System.EventHandler(this.btluu_Click);
             // 
             // bthuy
             // 
@@ -298,6 +320,7 @@ namespace QuanLySDT
             this.bthuy.TabIndex = 4;
             this.bthuy.Text = "Hủy";
             this.bthuy.UseVisualStyleBackColor = true;
+            this.bthuy.Click += new System.EventHandler(this.bthuy_Click);
             // 
             // bttimkiem
             // 
@@ -309,21 +332,7 @@ namespace QuanLySDT
             this.bttimkiem.TabIndex = 5;
             this.bttimkiem.Text = "Tìm Kiếm";
             this.bttimkiem.UseVisualStyleBackColor = true;
-            // 
-            // thôngTinNgườiDùngToolStripMenuItem
-            // 
-            this.thôngTinNgườiDùngToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thôngTinNgườiDùngToolStripMenuItem.Name = "thôngTinNgườiDùngToolStripMenuItem";
-            this.thôngTinNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
-            this.thôngTinNgườiDùngToolStripMenuItem.Text = "Thông tin người dùng";
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(262, 26);
-            this.thoátToolStripMenuItem.Text = "Thoát";
-            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
+            this.bttimkiem.Click += new System.EventHandler(this.bttimkiem_Click);
             // 
             // Form1
             // 
@@ -338,6 +347,7 @@ namespace QuanLySDT
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
